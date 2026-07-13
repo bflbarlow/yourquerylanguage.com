@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YourQL</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #fff;
+      color: #222;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 640px; margin: 0 auto; padding: 0 28px; }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 100px 0 100px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      margin-top: 20px;
+      font-size: 1.15rem;
+      color: #666;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero .note {
+      margin-top: 14px;
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+
+    .hero .note a { color: #888; }
+
+    /* ── Sections ── */
+    .section {
+      padding: 120px 0;
+      border-top: 1px solid #eee;
+    }
+
+    .section h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #444;
+      margin-bottom: 28px;
+    }
+
+    .section p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* ── Capabilities list ── */
+    .caps {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 32px;
+    }
+
+    .caps li {
+      font-size: 0.95rem;
+      color: #555;
+      padding-left: 14px;
+      border-left: 2px solid #ddd;
+    }
+
+    /* ── Provider cards ── */
+    .providers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: #eee;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .provider {
+      background: #fff;
+      padding: 28px 24px;
+    }
+
+    .provider h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .provider p {
+      font-size: 0.85rem;
+      color: #777;
+    }
+
+    /* ── Steps ── */
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .steps .step {
+      font-size: 0.9rem;
+      color: #555;
+      padding: 8px 16px;
+      background: #f6f6f6;
+      border-radius: 5px;
+      white-space: nowrap;
+    }
+
+    .steps .arrow { color: #ccc; font-size: 0.9rem; }
+
+    /* ── Getting started ── */
+    .code-block {
+      margin-top: 16px;
+      background: #f6f6f6;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      padding: 18px 24px;
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.85rem;
+      color: #444;
+      line-height: 1.8;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 64px 0;
+      text-align: center;
+      color: #bbb;
+      font-size: 0.8rem;
+      border-top: 1px solid #eee;
+    }
+
+    footer a { color: #888; text-decoration: none; }
+    footer a:hover { color: #555; }
+  </style>
+</head>
+<body>
+
+  <div class="hero container">
+    <h1>YourQL</h1>
+    <h2><em>Ask your database your questions.</em></h2>
+    <p>Query your database by talking to it. A desktop app that connects an LLM to your data.</p>
+    <p class="note">Work in progress &mdash; <a href="https://github.com/bflbarlow/YourQL">github.com/bflbarlow/YourQL</a></p>
+  </div>
+
+  <div class="section container">
+    <h2>How it works</h2>
+    <p>
+      You start a discussion, ask a question in plain English, and the
+      Discussion Engine takes over. It reads your database schema, sends
+      it to the LLM along with your question, executes the SQL that comes
+      back, and shows you the results — all within a chat interface.
+    </p>
+    <div class="steps">
+      <span class="step">Question</span>
+      <span class="arrow">→</span>
+      <span class="step">LLM</span>
+      <span class="arrow">→</span>
+      <span class="step">SQL</span>
+      <span class="arrow">→</span>
+      <span class="step">Results</span>
+    </div>
+  </div>
+
+  <div class="section container">
+    <h2>What it can do</h2>
+    <ul class="caps">
+      <li>Natural language to SQL via any supported LLM</li>
+      <li>Schema introspection — tables, columns, indexes, foreign keys</li>
+      <li>Exploration mode — the LLM can run intermediate queries for context</li>
+      <li>Read-only safety on all exploration queries</li>
+      <li>Self-correction — SQL errors are fed back to the LLM</li>
+      <li>Persistent conversations and full message history</li>
+    </ul>
+  </div>
+
+  <div class="section container">
+    <h2>LLM providers</h2>
+    <div class="providers">
+      <div class="provider">
+        <h3>OpenAI</h3>
+        <p>GPT-4 and other OpenAI models</p>
+      </div>
+      <div class="provider">
+        <h3>Anthropic</h3>
+        <p>Claude models</p>
+      </div>
+      <div class="provider">
+        <h3>Ollama</h3>
+        <p>Local, self-hosted models</p>
+      </div>
+      <div class="provider">
+        <h3>Local / Custom</h3>
+        <p>Any local model path or endpoint</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      YourQL &mdash; <a href="https://github.com/bflbarlow/YourQL">GitHub</a>
+    </div>
+  </footer>
+
+</body>
+</html>
