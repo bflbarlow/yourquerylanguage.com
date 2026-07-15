@@ -140,6 +140,25 @@
       line-height: 1.8;
     }
 
+    /* ── Screenshots ── */
+    .screenshots {
+      margin-top: 64px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .screenshots img {
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid #eee;
+      transition: opacity 0.2s;
+    }
+
+    .screenshots img:hover {
+      opacity: 0.85;
+    }
+
     /* ── Footer ── */
     footer {
       padding: 64px 0;
@@ -151,6 +170,33 @@
 
     footer a { color: #888; text-decoration: none; }
     footer a:hover { color: #555; }
+
+    /* ── Lightbox ── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+      cursor: zoom-out;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 6px;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+    }
   </style>
 </head>
 <body>
@@ -160,6 +206,15 @@
     <h2><em>Your data. Your questions. Your answers.</em></h2>
     <p>Chat with your database. A desktop app that connects an LLM to your data.</p>
     <p class="note">Work in progress &mdash; <a href="https://github.com/bflbarlow/YourQL">github.com/bflbarlow/YourQL</a></p>
+
+    <div class="screenshots">
+      <img src="images/screenshot-1.png" alt="YourQL screenshot" loading="lazy">
+      <img src="images/screenshot-2.png" alt="YourQL screenshot" loading="lazy">
+      <img src="images/screenshot-3.png" alt="YourQL screenshot" loading="lazy">
+      <img src="images/screenshot-4.png" alt="YourQL screenshot" loading="lazy">
+      <img src="images/screenshot-5.png" alt="YourQL screenshot" loading="lazy">
+      <img src="images/screenshot-6.png" alt="YourQL screenshot" loading="lazy">
+    </div>
   </div>
 
   <div class="section container">
@@ -214,6 +269,23 @@
       </div>
     </div>
   </div>
+
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Screenshot">
+  </div>
+
+  <script>
+    const lb = document.getElementById('lightbox');
+    document.querySelectorAll('.screenshots img').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        lb.querySelector('img').src = img.src;
+        lb.classList.add('active');
+      });
+    });
+    lb.addEventListener('click', () => lb.classList.remove('active'));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('active'); });
+  </script>
 
   <footer>
     <div class="container">
