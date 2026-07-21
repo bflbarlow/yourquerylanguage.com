@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — YourQL</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #fff;
+      color: #222;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 28px; }
+    header {
+      padding: 64px 0 36px;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 48px;
+    }
+    header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+    header p { font-size: 0.9rem; color: #999; margin-top: 6px; }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 40px 0 12px;
+      color: #333;
+    }
+    p, li { font-size: 0.95rem; color: #555; margin-bottom: 12px; }
+    ul { padding-left: 20px; margin-bottom: 16px; }
+    li { margin-bottom: 6px; }
+    a { color: #0066cc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer {
+      margin-top: 64px;
+      padding: 40px 0;
+      border-top: 1px solid #eee;
+      text-align: center;
+      color: #bbb;
+      font-size: 0.8rem;
+    }
+    footer a { color: #888; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p>YourQL — Last updated July 20, 2026</p>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <h2>Overview</h2>
+    <p>
+      YourQL is a desktop application that connects to your databases and lets you ask
+      questions in natural language. YourQL runs entirely on your computer. We do not
+      operate backend servers that store or process your data.
+    </p>
+
+    <h2>Data YourQL accesses</h2>
+    <p>
+      When you connect YourQL to your databases or Google Sheets, the application
+      accesses the following data on your behalf:
+    </p>
+    <ul>
+      <li><strong>Database schemas</strong> — table names, column names, column types,
+          indexes, and foreign key relationships.</li>
+      <li><strong>Query results</strong> — the rows and columns returned by SQL queries
+          that the application executes against your database.</li>
+      <li><strong>Google Sheets data</strong> — when you connect a Google Sheet, YourQL
+          requests <em>read-only</em> access (<code>spreadsheets.readonly</code>) to the
+          spreadsheet you specify. It reads cell data to query it with SQL.</li>
+    </ul>
+
+    <h2>How data is used</h2>
+    <ul>
+      <li><strong>Schema and query results</strong> are sent to the large language model
+          (LLM) provider you configure (e.g., OpenAI, Anthropic, Ollama) as part of the
+          natural-language-to-SQL conversation.</li>
+      <li>The LLM provider's privacy policy governs how it handles data you send to it.
+          YourQL does not add data to prompts beyond what is necessary for answering
+          your question.</li>
+      <li>YourQL does not train models on your data, sell your data, or share your data
+          with any party other than the LLM provider you choose.</li>
+    </ul>
+
+    <h2>Data storage</h2>
+    <ul>
+      <li><strong>All data stays on your machine.</strong> YourQL stores conversation
+          history, database connection settings, and configuration in a local SQLite
+          database on your computer.</li>
+      <li><strong>Google OAuth tokens</strong> are stored locally on your machine
+          in the same local database. They are never transmitted to YourQL servers
+          (we do not operate any).</li>
+      <li>You can delete all stored data by removing the application's data directory.</li>
+    </ul>
+
+    <h2>Google API data</h2>
+    <p>
+      YourQL's use and transfer to any other app of information received from Google
+      APIs will adhere to the
+      <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>,
+      including the Limited Use requirements.
+    </p>
+    <ul>
+      <li>YourQL accesses Google Sheets data solely to let you query it alongside your
+          other data sources.</li>
+      <li>YourQL does not access, read, or store data from any Google service beyond
+          the specific spreadsheets you connect.</li>
+      <li>YourQL does not use Google data for advertising or analytics.</li>
+      <li>YourQL does not share Google data with third parties except as directed by you
+          (i.e., when you send query results to your chosen LLM provider).</li>
+    </ul>
+
+    <h2>Third-party services</h2>
+    <p>
+      When you use YourQL, you may configure it to use third-party LLM providers
+      (OpenAI, Anthropic, Ollama, or custom endpoints). Data you query is sent to
+      these providers according to their respective privacy policies:
+    </p>
+    <ul>
+      <li><a href="https://openai.com/privacy/">OpenAI Privacy Policy</a></li>
+      <li><a href="https://www.anthropic.com/privacy">Anthropic Privacy Policy</a></li>
+      <li>For self-hosted providers (Ollama, custom endpoints), data stays within
+          your infrastructure.</li>
+    </ul>
+
+    <h2>Your rights</h2>
+    <p>
+      Since YourQL stores all data locally on your machine, you maintain full control:
+    </p>
+    <ul>
+      <li><strong>Access:</strong> All your data is in a local SQLite file you can inspect.</li>
+      <li><strong>Deletion:</strong> Delete conversations, connections, or the entire
+          data directory at any time.</li>
+      <li><strong>Revocation:</strong> Revoke Google OAuth access at any time via
+          <a href="https://myaccount.google.com/permissions">Google Account Permissions</a>
+          or by clicking "Disconnect" in YourQL's settings.</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>
+      YourQL is an open-source project maintained by Brian Barlow.
+      For privacy questions, email
+      <a href="mailto:bflbarlow@icloud.com">bflbarlow@icloud.com</a>.
+    </p>
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <a href="index.html">YourQL</a> &nbsp;·&nbsp;
+      <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </footer>
+
+</body>
+</html>
